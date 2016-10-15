@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void goToDate(int year, int month, int day){
         calendar.set(year,month,day);
-        textQuestion.setText(Questions365.getQuestions('e')[calendar.get(Calendar.DAY_OF_YEAR)-1]);//crash on 365 :o
+        textQuestion.setText(Questions365.getQuestions('e')[(calendar.get(Calendar.DAY_OF_YEAR)-1)%365]);//crash on 365 :o
         answer.setText("2016" + "Answer to question number  " + calendar.get(Calendar.DAY_OF_YEAR) + "  Eeeeva you so cute :3");
     }
 
