@@ -13,9 +13,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CalendarView;
 import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.g.mike.kalendarik.Data.Question;
+import com.g.mike.kalendarik.Data.Questions365;
+
 import java.util.Calendar;
+import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -25,14 +31,20 @@ public class MainActivity extends AppCompatActivity {
     // DatePicker datePicker;
     DatePickerDialog datePickerDialog;
 
+
+    //for demo
+    TextView textQuestion;
+    EditText answer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        textQuestion = (TextView)findViewById(R.id.questionText);
+        answer = (EditText) findViewById(R.id.answer1) ;
         calendar = Calendar.getInstance();
+        goToDate(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog = new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
@@ -56,7 +68,9 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
     private void goToDate(int year, int month, int day){
-
+        calendar.set(year,month,day);
+        textQuestion.setText(Questions365.getQuestions('e')[calendar.get(Calendar.DAY_OF_YEAR)-1]);//crash on 365 :o
+        answer.setText("2016" + "Answer to question number  " + calendar.get(Calendar.DAY_OF_YEAR) + "  Eeeeva you so cute :3");
     }
 
 

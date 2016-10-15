@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="question">26 Oct: Default Question, will be changed when date is selected</string>
     <string name="app_name">Banana!</string>
     <string name="action_today">Today</string>
     <string name="action_day_view">Day view</string>
