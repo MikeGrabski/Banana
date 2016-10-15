@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/toolbar</item>
         <item name="colorPrimaryDark">@color/calendar</item> <!-- accent, background -->
         <item name="android:windowContentOverlay">@null</item>
@@ -10,7 +10,7 @@
         <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
         <item name="colorControlActivated">@color/calendar</item>   <!-- accent, what we press -->
         <!--<item name="android:headerBackground">@color/calendar</item>-->
-        <item name="android:colorAccent">@color/calendar</item> <!-- changed default color -->
+        <item name="colorAccent">@color/calendar</item> <!-- changed default color -->
     </style>
 
     <style name="Button">
