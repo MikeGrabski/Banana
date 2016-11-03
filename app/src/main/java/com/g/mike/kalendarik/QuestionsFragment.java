@@ -40,6 +40,7 @@ public class QuestionsFragment extends Fragment {
         answer[2] = (EditText) view.findViewById(R.id.answer1) ;
         answer[3] = (EditText) view.findViewById(R.id.answer1) ;
         answer[4] = (EditText) view.findViewById(R.id.answer1) ;
+        if(day !=-1)
         textQuestion.setText(Questions365.getQuestions('e')[day]);
         return view;
 

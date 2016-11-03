@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.g.mike.kalendarik.Data.Question;
 import com.g.mike.kalendarik.Data.Questions365;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -85,11 +86,22 @@ public class MainActivity extends AppCompatActivity {
         adapterViewPager = new MyPagerAdapter(getSupportFragmentManager());
         vpPager.setAdapter(adapterViewPager);
         vpPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-
+            SimpleDateFormat format = new SimpleDateFormat("EE, MMM d, yyyy");
             // This method will be invoked when a new page becomes selected.
             @Override
             public void onPageSelected(int position) {
                 currentItem = position;
+                if(position != 0 || position != 366)
+                    calendar.set(Calendar.DAY_OF_YEAR,position);
+                toolbar.setTitle(format.format(calendar.getTime()));
+//                toolbar.setTitle("" + position);
+                if (vpPager.getCurrentItem() == 366) {
+                    vpPager.setCurrentItem(1, false);
+                }
+                if (vpPager.getCurrentItem() == 0) {
+                    vpPager.setCurrentItem(365, false); // false will prevent sliding                      animation of view pager
+                }
+
             }
 
             // This method will be invoked when the current page is scrolled
@@ -108,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static class MyPagerAdapter extends FragmentPagerAdapter {
-        private static int NUM_ITEMS = 365;
+        private static int NUM_ITEMS = 367;
 
         public MyPagerAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
@@ -123,10 +135,12 @@ public class MainActivity extends AppCompatActivity {
         // Returns the fragment to display for that page
         @Override
         public Fragment getItem(int position) {
-            return QuestionsFragment.newInstance(position);
+            if(position ==0)
+                return QuestionsFragment.newInstance(364);
+            if(position == 366)
+                return QuestionsFragment.newInstance(0);
+            return QuestionsFragment.newInstance(position-1);
         }
-
-
     }
 
 }
