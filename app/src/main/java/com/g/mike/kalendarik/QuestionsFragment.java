@@ -33,24 +33,15 @@ public class QuestionsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.day = this.getArguments().getInt("day");
-        return inflater.inflate(R.layout.day_layout, container, false);
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        textQuestion = (TextView)getActivity().findViewById(R.id.questionText);
-        answer[0] = (EditText) getActivity().findViewById(R.id.answer1) ;
-        answer[1] = (EditText) getActivity().findViewById(R.id.answer1) ;
-        answer[2] = (EditText) getActivity().findViewById(R.id.answer1) ;
-        answer[3] = (EditText) getActivity().findViewById(R.id.answer1) ;
-        answer[4] = (EditText) getActivity().findViewById(R.id.answer1) ;
+        View view = inflater.inflate(R.layout.day_layout, container, false);
+        textQuestion = (TextView)view.findViewById(R.id.questionText);
+        answer[0] = (EditText) view.findViewById(R.id.answer1) ;
+        answer[1] = (EditText) view.findViewById(R.id.answer1) ;
+        answer[2] = (EditText) view.findViewById(R.id.answer1) ;
+        answer[3] = (EditText) view.findViewById(R.id.answer1) ;
+        answer[4] = (EditText) view.findViewById(R.id.answer1) ;
         textQuestion.setText(Questions365.getQuestions('e')[day]);
-        super.onViewCreated(view, savedInstanceState);
+        return view;
+
     }
-
-    public void setDay(int day) {
-        this.day = day;
-    }
-
-
 }

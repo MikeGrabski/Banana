@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void goToDate(int year, int month, int day){
         calendar.set(year,month,day);
-        vpPager.setCurrentItem(calendar.get(Calendar.DAY_OF_YEAR));
+        vpPager.setCurrentItem(calendar.get(Calendar.DAY_OF_YEAR)-1);
     }
 
 
@@ -126,11 +126,6 @@ public class MainActivity extends AppCompatActivity {
             return QuestionsFragment.newInstance(position);
         }
 
-        // Returns the page title for the top indicator
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return "Page " + position;
-        }
 
     }
 
