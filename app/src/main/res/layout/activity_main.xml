@@ -16,11 +16,28 @@
         android:title="@string/app_name"
         >
     </android.support.v7.widget.Toolbar>
-    <!--TO BE REMOVED WHEN FLIPPING IS IMPLEMENTED, NOW INCLUDED JUST FOR DEMO-->
-    <include layout="@layout/day_layout"
+
+    <android.support.v4.view.ViewPager
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:id="@+id/questionPager">
+    </android.support.v4.view.ViewPager>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/wallView"
         android:layout_below="@id/toolbar">
 
-    </include>
+    </FrameLayout>
+
+    <!--TO BE REMOVED WHEN FLIPPING IS IMPLEMENTED, NOW INCLUDED JUST FOR DEMO-->
+    <!--<include layout="@layout/day_layout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_below="@id/toolbar">-->
+
+    <!--</include>-->
 </RelativeLayout>
